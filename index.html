@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sahayak</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+    <div class="app-shell" role="application" aria-label="Sahayak">
+      <header class="app-header">
+        <div class="app-header-inner">
+          <div class="app-brand" aria-label="Sahayak">Sahayak</div>
+          <div id="app-status" class="app-status" aria-live="polite"></div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <!-- 1) ONBOARDING -->
+        <section
+          id="screen-onboarding"
+          class="app-screen app-screen-landing is-active"
+          aria-label="Onboarding"
+        >
+          <div class="landing">
+            <div class="slider">
+              <div class="scroll-container">
+                <div class="slide">
+                  <img src="image/slide1.jpg" />
+                </div>
+                <div class="slide">
+                  <img src="image/slide2.jpg" />
+                </div>
+                <div class="slide">
+                  <img src="image/slide3.jpg" />
+                </div>
+              </div>
+            </div>
+            <div class="dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <h1 class="landing-title title" data-anim="title">SAHAYAK</h1>
+            <p class="landing-tagline subtitle" data-anim="tagline">that listens, sees and moves with you</p>
+            <p class="landing-desc description" data-anim="desc">
+              Voice commands, predictive actions, and simplified interfaces give you full control.
+            </p>
+            <button id="btn-get-started" class="app-button app-button-full landing-cta" type="button" data-anim="button">
+              Get Started
+            </button>
+          </div>
+        </section>
+
+        <!-- 2) LOGIN -->
+        <section id="screen-login" class="app-screen" aria-label="Login">
+          <div class="screen-head">
+            <h2 class="screen-title">Login</h2>
+            <p class="screen-subtitle">Continue to your workspace</p>
+          </div>
+
+          <div class="app-card">
+            <label class="app-label" for="login-email">Email</label>
+            <input id="login-email" class="app-input" type="email" autocomplete="email" placeholder="you@example.com" />
+
+            <label class="app-label" for="login-password">Password</label>
+            <input
+              id="login-password"
+              class="app-input"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+            />
+
+            <button id="btn-login" class="app-button app-button-full" type="button">Login</button>
+            <button id="btn-signup" class="app-button app-button-full app-button-secondary" type="button">Sign Up</button>
+            <p id="login-hint" class="app-hint">
+              If Firebase is not configured, Sahayak will run in demo mode.
+            </p>
+            <p id="login-error" class="app-error" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <!-- 3) ROLE SELECTION -->
+        <section id="screen-role" class="app-screen" aria-label="Role selection">
+          <div class="screen-head">
+            <h2 class="screen-title">Choose role</h2>
+            <p class="screen-subtitle">Who is using Sahayak?</p>
+          </div>
+
+          <div class="grid grid-2">
+            <button class="app-card pick-card" type="button" data-pick-role="user">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="3.5" />
+                  <path d="M5 20v-.8a5 5 0 0 1 10 0V20" />
+                </svg>
+              </span>
+              <span class="pick-title">User</span>
+              <span class="pick-sub">Personal assistance and tools.</span>
+            </button>
+
+            <button class="app-card pick-card" type="button" data-pick-role="caregiver">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </span>
+              <span class="pick-title">Caregiver</span>
+              <span class="pick-sub">Activity and alerts overview.</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- 4) IMPAIRMENT SELECTION -->
+        <section id="screen-selection" class="app-screen" aria-label="Assistance type selection">
+          <div class="screen-head">
+            <h2 class="screen-title">Select your assistance type</h2>
+            <p class="screen-subtitle">Choose how Sahayak can support you</p>
+          </div>
+          <div class="impairment-page">
+            <button class="app-card impairment-card" type="button" data-select-disability="Visually Impaired">
+              <div class="icon" aria-hidden="true"></div>
+              <h3>Visually Impaired</h3>
+            </button>
+            <button class="app-card impairment-card" type="button" data-select-disability="Hearing Impaired">
+              <div class="icon" aria-hidden="true"></div>
+              <h3>Hearing Impaired</h3>
+            </button>
+            <button class="app-card impairment-card" type="button" data-select-disability="Motor Impairment">
+              <div class="icon" aria-hidden="true"></div>
+              <h3>Motor Impairment</h3>
+            </button>
+          </div>
+        </section>
+
+        <!-- 5) USER DASHBOARD -->
+        <section id="screen-user-home" class="app-screen" aria-label="User dashboard">
+          <div class="screen-head">
+            <h2 class="screen-title">Dashboard</h2>
+            <p id="user-home-subtitle" class="screen-subtitle"></p>
+          </div>
+
+          <button id="btn-emergency-sos" class="app-button app-button-full emergency-sos-legacy" type="button">
+            Emergency SOS
+          </button>
+
+          <div class="grid grid-2 user-dashboard-features quick-actions">
+            <button class="pick-card feature-card quick-card" type="button" data-feature-key="quick-1">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <path d="M12 19v3" />
+                </svg>
+              </span>
+              <h4 class="pick-title" data-feature-label="quick-1">Voice Navigation</h4>
+              <p class="pick-sub">Open assistive feature</p>
+            </button>
+            <button class="pick-card feature-card quick-card" type="button" data-feature-key="quick-2">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              </span>
+              <h4 class="pick-title" data-feature-label="quick-2">Scene Description</h4>
+              <p class="pick-sub">Open assistive feature</p>
+            </button>
+            <button class="pick-card feature-card quick-card" type="button" data-feature-key="quick-3">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </span>
+              <h4 class="pick-title" data-feature-label="quick-3">Screen Reader</h4>
+              <p class="pick-sub">Open assistive feature</p>
+            </button>
+            <button class="pick-card feature-card quick-card" type="button" data-feature-key="quick-4">
+              <span class="app-icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 2v6h6" />
+                  <path d="M8 13h8M8 17h6" />
+                </svg>
+              </span>
+              <h4 class="pick-title" data-feature-label="quick-4">Text Recognition</h4>
+              <p class="pick-sub">Open assistive feature</p>
+            </button>
+          </div>
+
+          <div class="app-card assistive-tools">
+            <div class="card-head">
+              <h3 class="card-title">Assistive tools</h3>
+              <p class="card-subtitle">Voice, scene, text &amp; more</p>
+            </div>
+
+            <div id="scene-workspace" class="scene-workspace" hidden>
+              <p class="app-label">Scene camera</p>
+              <div id="scene-live-block">
+                <div class="scene-video-wrap">
+                  <video id="scene-video" playsinline muted autoplay aria-label="Live camera preview"></video>
+                </div>
+                <button id="btn-capture-scene" class="app-button app-button-full" type="button">Capture Scene</button>
+              </div>
+              <div id="scene-result-block" class="scene-result-block" hidden>
+                <p class="app-label">Captured scene</p>
+                <img id="scene-captured-img" class="scene-captured-img" alt="Captured scene" />
+                <p id="scene-description-text" class="scene-description-text app-hint"></p>
+              </div>
+            </div>
+
+            <button id="btn-read-screen" class="app-button app-button-full" type="button">Screen Reader</button>
+            <button id="btn-stt" class="app-button app-button-full" type="button">Live Transcription</button>
+            <textarea
+              id="transcriptionBox"
+              class="app-input"
+              rows="3"
+              placeholder="Live transcription text will appear here (type to test emotion and summary)"
+            ></textarea>
+            <div id="emotionText" class="app-hint">Emotion: –</div>
+            <div id="summaryText" class="app-hint">Summary: –</div>
+
+            <label class="app-label" for="ocr-upload">Upload image for OCR</label>
+            <input id="ocr-upload" class="app-input" type="file" accept="image/*" />
+            <div id="ocr-preview-wrap" class="ocr-preview-wrap" hidden>
+              <img id="ocr-preview-img" class="ocr-preview-img" alt="Selected image preview" />
+            </div>
+            <p id="ocr-status" class="app-hint" aria-live="polite"></p>
+            <textarea
+              id="ocr-output"
+              class="app-input"
+              rows="4"
+              placeholder="Extracted text will appear here"
+              readonly
+            ></textarea>
+
+            <button id="btn-sound-alert" class="app-button app-button-full app-button-secondary" type="button">
+              Sound Alert Mode: OFF
+            </button>
+            <p id="voiceStatus" class="app-hint voice-status" aria-live="polite"></p>
+            <button id="btn-voice-action" class="app-button app-button-full" type="button">Start Voice Action</button>
+            <button id="btn-easy-mode" class="app-button app-button-full app-button-secondary" type="button">
+              Easy Mode: OFF
+            </button>
+          </div>
+
+        </section>
+
+        <!-- 6) CAREGIVER DASHBOARD -->
+        <section id="screen-caregiver-home" class="app-screen" aria-label="Caregiver dashboard">
+          <div class="screen-head">
+            <h2 class="screen-title">Care overview</h2>
+            <p class="screen-subtitle">User summary, activity and alerts</p>
+          </div>
+
+          <div class="grid grid-1">
+            <div class="app-card">
+              <div class="card-head">
+                <h3 class="card-title">Connection</h3>
+                <p class="card-subtitle">Link to a user by email</p>
+              </div>
+              <label class="app-label" for="caregiver-link-email">User Email</label>
+              <input id="caregiver-link-email" class="app-input" type="email" placeholder="Enter user email" />
+              <button id="btn-caregiver-link" class="app-button app-button-full" type="button">Link user</button>
+              <p id="caregiver-link-hint" class="app-hint">
+                Enter a registered user email. Sahayak links the account automatically.
+              </p>
+            </div>
+
+            <div class="app-card">
+              <div class="card-head">
+                <h3 class="card-title">User details</h3>
+              </div>
+              <div class="kv">
+                <div class="kv-row"><span class="kv-k">Linked user email</span><span id="cg-user-email" class="kv-v">–</span></div>
+                <div class="kv-row">
+                  <span class="kv-k">Disability</span><span id="cg-user-disability" class="kv-v">–</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-card">
+              <div class="card-head">
+                <h3 class="card-title">Recent activity</h3>
+              </div>
+              <ul id="cg-activity" class="activity-list">
+                <li class="activity-empty">No activity detected.</li>
+              </ul>
+            </div>
+
+            <div class="app-card">
+              <div class="card-head">
+                <h3 class="card-title">Alerts</h3>
+              </div>
+              <ul id="cg-alerts" class="activity-list">
+                <li class="activity-empty">No alerts.</li>
+              </ul>
+            </div>
+
+            <div class="app-card">
+              <div class="card-head">
+                <h3 class="card-title">Monitoring</h3>
+              </div>
+              <div class="kv">
+                <div class="kv-row"><span class="kv-k">Last activity</span><span id="cg-last-activity" class="kv-v">–</span></div>
+                <div class="kv-row"><span class="kv-k">Most used</span><span id="cg-most-used" class="kv-v">–</span></div>
+                <div class="kv-row"><span class="kv-k">Activity count</span><span id="cg-activity-count" class="kv-v">0</span></div>
+                <div class="kv-row"><span class="kv-k">Inactivity</span><span id="cg-inactivity-alert" class="kv-v">No alert</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Activity (bottom nav) -->
+        <section id="screen-activity" class="app-screen" aria-label="Activity">
+          <div class="screen-head">
+            <h2 class="screen-title">Activity</h2>
+            <p id="activity-subtitle" class="screen-subtitle">Recent feature usage</p>
+          </div>
+
+          <div class="app-card">
+            <ul id="activity-list" class="activity-list">
+              <li class="activity-empty">No activity yet.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 7) PROFILE -->
+        <section id="screen-profile" class="app-screen" aria-label="Profile">
+          <div class="screen-head">
+            <h2 class="screen-title">Profile</h2>
+            <p class="screen-subtitle">Your details</p>
+          </div>
+
+          <div class="grid grid-1">
+            <div class="app-card">
+              <div class="kv">
+                <div class="kv-row"><span class="kv-k">Name</span><span id="profile-name" class="kv-v">–</span></div>
+                <div class="kv-row"><span class="kv-k">Role</span><span id="profile-role" class="kv-v">–</span></div>
+                <div class="kv-row">
+                  <span class="kv-k">Disability</span><span id="profile-disability" class="kv-v">–</span>
+                </div>
+                <div class="kv-row"><span class="kv-k">User ID</span><span id="profile-uid" class="kv-v">–</span></div>
+              </div>
+            </div>
+
+            <button id="btn-logout" class="app-button app-button-full app-button-secondary" type="button">Logout</button>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Bottom navigation">
+        <button class="nav-item is-active" type="button" data-nav="home" aria-label="Home">
+          <span class="app-icon nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" />
+            </svg>
+          </span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="activity" aria-label="Activity">
+          <span class="app-icon nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </span>
+          <span class="nav-label">Activity</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="profile" aria-label="Profile">
+          <span class="app-icon nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3.5" />
+              <path d="M5 20v-.8a5 5 0 0 1 10 0V20" />
+            </svg>
+          </span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+
+      <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    </div>
+    </div>
+
+    <!-- Firebase (loaded but app can run without config) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
